@@ -14,7 +14,7 @@ import java.util.Optional;
 @Repository("fakeProductDB")
 public class FakeProductDAO implements ProductDAO {
 
-    List<Product> products=new ArrayList<>(Arrays.asList(new Product("Cisowianka", new Barcode("5902078000102"), 10, Unit.SZT)));
+    List<Product> products=new ArrayList<>(Arrays.asList(new Product("Water", new Barcode("5902078000102"), 10, Unit.SZT)));
     @Override
     public boolean insertProduct(Product product) {
         products.add(product);
