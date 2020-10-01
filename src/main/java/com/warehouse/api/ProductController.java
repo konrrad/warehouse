@@ -29,15 +29,20 @@ public class ProductController {
     public String getProductData(@PathVariable("code")Barcode barcode, Model model)
     {
         Optional<Product> productOptional=productService.selectProductByBarcode(barcode);
-        productOptional.ifPresent((product -> model.addAttribute("product",product)));
         Product newProduct=new Product(barcode);
-        productOptional.ifPresent(product -> newProduct.setName(product.getName()));
-        productOptional.ifPresent(product -> newProduct.setStock(product.getStock()));
+        if(productOptional.isPresent())
+        {
+            final Product product=productOptional.get();
+            model.addAttribute("product",product);
+            newProduct.setName(product.getName());
+            newProduct.setStock(product.getStock());
+        }
 
         if(!model.containsAttribute("newProduct"))
             model.addAttribute("newProduct",newProduct);
         return "product";
     }
+
 
     @PostMapping
     public String uploadProductData(@Valid @ModelAttribute("newProduct") Product newProduct, BindingResult bindingResult,

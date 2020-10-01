@@ -45,10 +45,9 @@ public class UploadController {
         Optional<String> code;
         try
         {
-            System.out.println(barcodeService.getBarcode(file));
-            //@TODO delete
-/*            code=Optional.ofNullable(barcodeService.getBarcode(file));*/
-            code=Optional.of(barcodeService.getBarcode(file));
+            final String barcode=barcodeService.getBarcode(file);
+            System.out.println(barcode);
+            code=Optional.of(barcode);
 
         } catch (IOException|NullPointerException e) {
             redirectAttributes.addFlashAttribute("code","PROVIDE AN IMAGE");

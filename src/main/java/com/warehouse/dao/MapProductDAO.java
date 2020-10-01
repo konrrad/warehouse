@@ -13,7 +13,7 @@ public class MapProductDAO implements ProductDAO {
     Map<Barcode,Product> barcodeProductMap=new HashMap<>();
 
     public MapProductDAO() {
-        barcodeProductMap.put(new Barcode("5902078000102"),new Product("Cisowianka", new Barcode("5902078000102"), 10, Unit.SZT));
+        barcodeProductMap.put(new Barcode("5902078000102"),new Product("Water", new Barcode("5902078000102"), 10, Unit.SZT));
     }
 
     @Override
