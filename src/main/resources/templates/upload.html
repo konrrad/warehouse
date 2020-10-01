@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/header.html :: headerfiles('Warehouse - barcode scanner')"></head>
+<body>
+
+
+<div th:replace="fragments/header.html :: navigation_bar"></div>
+<div class="container-fluid pt-2 w-header">
+	<h1 class="text-center padding" th:text="#{upload.welcome}">Upload File To Read Bar</h1>
+	<hr/>
+
+	<form class="text-center" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/*" capture="camera"/> <br/><br/>
+		<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+	<hr/>
+	<div th:if="${code}">
+		<h2 th:text="${code}"/></h2>
+	</div>
+</div>
+
+
+</body>
+</html>

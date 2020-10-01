@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: headerfiles('Warehouse - home')">
+</head>
+<body>
+
+    <div th:replace="fragments/header.html :: navigation_bar"></div>
+    <h1 class="text-center" th:text="#{home.welcome(${name})}">Welcome!</h1>
+
+</body>
+</html>
